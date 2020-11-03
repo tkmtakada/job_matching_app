@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta http-equiv="refresh" content="1" > -->
+    <title>Login_student</title>
+    <link rel="stylesheet" href="/static/css/login_student.css" media="screen">
+</head>
+
+<body>
+    <div>
+        <div class="login">
+
+<!--ログインステータス-->
+            <h1>ユーザーログイン</h1>
+            {% if status == "user_notfound" %}
+            <p>ユーザが見つかりません。新規登録しましょう。</p>
+            {% elif status == "user_wrong_password" %}
+            <p>パスワードが間違っています。</p>
+            {% elif status == "user_logout" %}
+            <p>ログアウトが完了しました。</p>
+            {% endif %}
+
+<!--入力部分            -->
+            <form action="/login_student" method="post"></form>
+                <input type="text" name="name" placeholder="ニックネーム"><br>
+                <input type="password"  name="password" placeholder="password"><br>
+                <input type="submit" value="Login"><br>
+            </form>
+
+            <a href="/new_student">新規登録はこちら</a>
+        </div>
+
+
+    </div>
+
+</body>
+</html>

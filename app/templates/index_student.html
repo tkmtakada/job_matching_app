@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=yes, maximum-scale=1.0, minimum-scale=1.0">
+<title>ユーザーマイページ</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<link rel="stylesheet" href="/static/css/index_student.css" type="text/css" media="screen">
+
+
+</head>
+<body>
+
+
+<header>
+	<ul>
+		<li><a href="/index_student"><strong>ホーム</strong></a></li>
+		<li><a href="/message_list"><strong>メッセージ</strong></a></li>
+		<!--<li><a href="subpage.html"><strong>サークル検索</strong></a></li>-->
+		<li class="logout"><a href="/logout"><strong>ログアウト</strong></a></li>
+	</ul>
+</header>
+
+<!--おすすめサークル部分-->
+
+<div class ="contents">
+
+	<div class="student-list-title-box">
+		<h1 class = "student-list-title">{{s_name}}さんにオススメのバイト</h1>
+	</div>
+
+	<div class = "student-list-box">
+
+		{% for circle in matched_circle.iterrows() %}
+		<div class= "student-list">
+
+			<img class= "student-image" src= "https://circleimages0000.s3.amazonaws.com/{{circle[1].c_image}}">
+
+
+			<div class="student-contents">
+				<p  class="student-info"><a href="/circle/{{circle[1].c_id}}" >{{circle[1].c_name}} </a>#{{circle[1].c_area}} #{{circle[1].c_univ}}</p>
+				<div>
+					<h3>職場からの一言</h3>
+					<p>{{circle[1].c_desc}}<p>
+				</div>
+			</div>
+
+
+					<span><p></p></span>
+					<span><p></p></span>
+
+
+		</div>
+		{% endfor %}
+
+
+
+
+	</div>
+
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=yes, maximum-scale=1.0, minimum-scale=1.0">
+<title>バイト情報</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<link rel="stylesheet" href="/static/cssmessage_list.css" type="text/css" media="screen">
+
+<html>
+<body>
+	<header>
+	<ul>
+		<li><a href="/index_student"><strong>ホーム</strong></a></li>
+		<li><a href="/message_list"><strong>メッセージ</strong></a></li>
+		<li class="logout"><a href="/logout"><strong>ログアウト</strong></a></li>
+	</ul>
+	</header>
+
+
+
+<!--おすすめサークル部分-->
+
+<div class ="contents">
+
+	<div class="student-list-title-box">
+		<h1 class = "student-list-title">あなたへのメッセージ一覧</h1>
+	</div>
+
+	<div class = "student-list-box">
+
+		<div class= "student-list">
+
+			<div class="student-contents">
+				{% for message in message_list.iterrows() %}
+				<p>{{message[1].c_id}} </p>
+				<p>{{message[1].c_name}}</p>
+				<a href="/message_list/{{message[1].c_id}}" class ="student-message">メッセージを見る </a>
+				{% endfor %}
+			</div>
+
+		</div>
+
+
+	</div>
+
+</div>
+
+
+</body>
+</html>
+
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=yes, maximum-scale=1.0, minimum-scale=1.0">
+<title>サークル管理ページ</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<link rel="stylesheet" href="/static/css/index_circle.css" type="text/css" media="screen">
+
+
+</head>
+<body>
+
+
+<header>
+	<ul>
+		<li><a href="/index_circle"><strong>ホーム</strong></a></li>
+		<li class="logout"><a href="/logout"><strong>ログアウト</strong></a></li>
+	</ul>
+</header>
+
+<!--おすすめサークル部分-->
+
+<div class ="contents">
+
+	<div class="student-list-title-box">
+		<h1 class = "student-list-title">{{circle.name}}に興味を示した学生一覧</h1>
+	</div>
+
+	<div class = "student-list-box">
+
+	{% for student in favall %}
+		<div class= "student-list">
+
+			<img class= "student-image" src= "../images/index_circle.jpg">
+
+			<div class="student-contents">
+				<p  class="student-info">{{student.s_name}}#{{student.s_area}}#{{student.s_univ}}</p>
+				<div><a href="/student/{{student.s_id}}" class ="student-message">メッセージ</a></div>
+			</div>
+
+		</div>
+	{% endfor %}
+
+
+	</div>
+
+</div>
+
+
+</body>
+</html>

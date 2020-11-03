@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="UTF-8">
+      <title>法人登録ベージ</title>
+      <link rel="stylesheet" href="/static/css/new_circle.css" media="screen">
+    </head>
+    <body>
+      <div class="frame">
+      <h1>法人新規登録</h1>
+      <a href="/login_c">ログイン画面に戻る</a>
+      {% if status == "exist_circle" %}
+      <p>その法人は既に登録されています。</p>
+      {% endif %}
+      <form action="/register_circle" method="POST">
+        <input type="text" name="circle_name" placeholder="法人名">
+        <!-- <input type="password" name="circle_password" placeholder="password">-->
+        <br>
+        <select name="circle_area" class="selection area">
+            <option value="" selected>都道府県</option>
+            <option value="北海道">北海道</option>
+            <option value="青森県">青森県</option>
+            <option value="岩手県">岩手県</option>
+            <option value="宮城県">宮城県</option>
+            <option value="秋田県">秋田県</option>
+            <option value="山形県">山形県</option>
+            <option value="福島県">福島県</option>
+            <option value="茨城県">茨城県</option>
+            <option value="栃木県">栃木県</option>
+            <option value="群馬県">群馬県</option>
+            <option value="埼玉県">埼玉県</option>
+            <option value="千葉県">千葉県</option>
+            <option value="東京都">東京都</option>
+            <option value="神奈川県">神奈川県</option>
+            <option value="新潟県">新潟県</option>
+            <option value="富山県">富山県</option>
+            <option value="石川県">石川県</option>
+            <option value="福井県">福井県</option>
+            <option value="山梨県">山梨県</option>
+            <option value="長野県">長野県</option>
+            <option value="岐阜県">岐阜県</option>
+            <option value="静岡県">静岡県</option>
+            <option value="愛知県">愛知県</option>
+            <option value="三重県">三重県</option>
+            <option value="滋賀県">滋賀県</option>
+            <option value="京都府">京都府</option>
+            <option value="大阪府">大阪府</option>
+            <option value="兵庫県">兵庫県</option>
+            <option value="奈良県">奈良県</option>
+            <option value="和歌山県">和歌山県</option>
+            <option value="鳥取県">鳥取県</option>
+            <option value="島根県">島根県</option>
+            <option value="岡山県">岡山県</option>
+            <option value="広島県">広島県</option>
+            <option value="山口県">山口県</option>
+            <option value="徳島県">徳島県</option>
+            <option value="香川県">香川県</option>
+            <option value="愛媛県">愛媛県</option>
+            <option value="高知県">高知県</option>
+            <option value="福岡県">福岡県</option>
+            <option value="佐賀県">佐賀県</option>
+            <option value="長崎県">長崎県</option>
+            <option value="熊本県">熊本県</option>
+            <option value="大分県">大分県</option>
+            <option value="宮崎県">宮崎県</option>
+            <option value="鹿児島県">鹿児島県</option>
+            <option value="沖縄県">沖縄県</option>
+          </select>
+          <br>
+        <input type="text" name="circle_univ" placeholder="大学名">
+        <!--<input type="text" name="circle_big_tag" placeholder="大タグ"> -->
+        <br>
+        <select name="circle_big_tag" class="selection big-tag">
+            <option value="" selected>スポーツ系・文化系</option>
+            <option value="スポーツ系">スポーツ系</option>
+            <option value="文化系">文化系</option>
+            </select>
+        <br>
+        <!-- <input type="text" name="circle_mid_tag" placeholder="中タグ">-->
+        <select name="circle_mid_tag" class="selection mid-tag">
+            <option value="" selected>インドア・アウトドア</option>
+            <option value="屋内">屋内</option>
+            <option value="屋外">屋外</option>
+            <option value="音楽">音楽</option>
+            </select>
+        <br>
+        <!-- <input type="text" name="circle_sml_tag_1" placeholder="小タグ１"> -->
+        <select name="user_sml_tag_1" class="selection sml-tag">
+            <option value="" selected>種目</option>
+            <option value="サッカー">サッカー</option>
+            <option value="バスケ">バスケ</option>
+            <option value="フットサル">フットサル</option>
+            <option value="軽音">軽音</option>
+            <option value="吹奏楽">吹奏楽</option>
+            <option value="セパタクロー">セパタクロー</option>
+            <option value="室内競技サークル">室内競技サークル</option>
+            <option value="カバディ">カバディ</option>
+            <option value="茶道">茶道</option>
+            <option value="学祭">学祭</option>
+            <option value="ヨット">ヨット</option>
+            <option value="ダイビング">ダイビング</option>
+            <option value="バレーボール">バレーボール</option>
+            </select>
+        <br>
+        <!-- <input type="text" name="circle_sml_tag_2" placeholder="小タグ2"> -->
+        <select name="circle_sml_tag_2" class="selection sml-tag">
+            <option value="" selected>雰囲気</option>
+            <option value="飲み">飲み</option>
+            <option value="真面目">真面目</option>
+            </select>
+        <textarea name="circle_text" rows="3" cols="40" placeholder="ここにバイトの紹介文を入力してください"></textarea>
+        <p class="image_expl">サークルの写真を選択</p>
+        <input type="file" name="circle_image" placeholder="仕事の写真をアップロード">
+        <input type="password"  name="circle_password" placeholder="password">
+        <input type="submit" value="新規登録">
+      </form>
+      </div>
+
+    </body>
+</html>

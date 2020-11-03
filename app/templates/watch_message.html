@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=yes, maximum-scale=1.0, minimum-scale=1.0">
+<title>{{c_name}}から{{c_name}}へのメッセージ</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<link rel="stylesheet" href="/static/css/watch_message.css" media="screen">
+</head>
+<body>
+
+<header>
+	<ul>
+		<li><a href="/index_student"><strong>ホーム</strong></a></li>
+		<li><a href="/message_list"><strong>メッセージ</strong></a></li>
+		<!--<li><a href="subpage.html"><strong>サークル検索</strong></a></li>-->
+		<li class="logout"><a href="/logout"><strong>ログアウト</strong></a></li>
+	</ul>
+</header>
+
+<div class="student-list-title-box">
+    <h1 class = "student-list-title">{{c_name}}から{{s_name}}のメッセージ</h1>
+</div>
+
+<ul>
+{% for message in message_list.iterrows() %}
+    <li>
+        {% if message[1].flag %}
+        <div class="onemessage-student">
+            <div class= "past-student">
+                <div align="left">{{message[1].message}}<{{message[1].date}}> flag{{message[1].flag}}</div>
+            </div>
+        </div>
+        {% else %}
+        <div class="onemessage-circle">
+            <div class= "past-circle">
+                <div align="right">{{message[1].message}}<{{message[1].date}}> flag{{message[1].flag}}</div>
+            </div>
+        </div>
+        {% endif %}
+    </li>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+{% endfor %}
+</ul>
+
+<form action="/s_sendmessage/{{c_id}}" method="post" id="s_sendmessage">
+    <div class="text">
+        <textarea name="message" rows="20" cols="20" placeholder="ここにメッセージを入力してください"></textarea>
+    </div>
+    <div class= "button">
+        <input type="submit" value="投稿">
+    </div>
+</form>
+
+
+</body>
+</html>

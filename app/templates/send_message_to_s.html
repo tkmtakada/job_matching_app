@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=yes, maximum-scale=1.0, minimum-scale=1.0">
+<title>サークルメッセージ</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<link rel="stylesheet" href="/static/css/send_message_to_s.css" type="text/css" media="screen">
+
+<html>
+<body>
+
+<!--ヘッダー部分-->
+<header>
+	<ul>
+		<li><a href="/index_circle"><strong>ホーム</strong></a></li>
+		<li class="logout"><a href="/logout"><strong>ログアウト</strong></a></li>
+	</ul>
+</header>
+
+<!-- 学生へのメッセージ入力 -->
+<div class ="contents">
+
+    <h1 class ="aaa">興味のあるユーザーへのメッセージ</h1>
+
+    <div class="message">
+        <!--サークル送信済みの過去メッセージ-->
+        <!--{% for message in past_message_list.iterrows() %}-->
+        <div class ="past-circle">
+            <p>{{messag[1].c_text}}</p>
+        </div>
+        <!--{% endfor %}-->
+
+        <!--学生からの受信済みの過去メッセージ-->
+        <!--{% for message in past_message_list.iterrows() %}-->
+        <div class ="past-student">
+            <p>{{message[1].s_text}}</p>
+        </div>
+        <!--{% endfor %}-->
+
+    </div>
+
+    <div>
+        <form action="" method="post">
+        <div class="text"><textarea name="messege" rows="20" cols="20" placeholder="ここにメッセージを入力してください"></textarea></div>
+        <div class= "button"><input type="submit" value="送信"></div>
+        </form>
+    </div>
+
+</div>
+
+</body>
+</html>
